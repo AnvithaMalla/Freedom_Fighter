@@ -1,0 +1,225 @@
+@import "tailwindcss";
+
+@theme {
+  --font-gurajada: "Gurajada", "Noto Serif Telugu", serif;
+  --font-ntr: "NTR", "Noto Sans Telugu", sans-serif;
+  --font-telugu-serif: "Noto Serif Telugu", serif;
+  --font-editorial: "Playfair Display", "Cinzel", "Noto Serif Telugu", serif;
+  --font-cinzel: "Cinzel", serif;
+  --font-baskerville: "Libre Baskerville", serif;
+
+  --color-archive-bg: #FAF7F0;
+  --color-archive-paper: #F4EFE6;
+  --color-archive-surface: #FFFFFF;
+  --color-archive-surface-warm: #FDFBF7;
+  --color-archive-ink: #1C1917;
+  --color-archive-ink-body: #2E2A27;
+  --color-archive-muted: #57524C;
+  --color-archive-maroon: #781D22;
+  --color-archive-maroon-dark: #5E1418;
+  --color-archive-maroon-light: #9B282F;
+  --color-archive-gold: #996515;
+  --color-archive-gold-light: #B8860B;
+  --color-archive-gold-pale: #EFE4CA;
+  --color-archive-border: #D6CFC7;
+  --color-archive-border-light: #E8E2D9;
+  --color-archive-border-dark: #B5A899;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-ntr), system-ui, sans-serif;
+    color: var(--color-archive-ink-body);
+    background-color: var(--color-archive-bg);
+  }
+
+  body {
+    min-height: 100vh;
+    background-color: var(--color-archive-bg);
+    background-image: radial-gradient(#D6CFC7 0.75px, transparent 0.75px), radial-gradient(#E8E2D9 0.75px, #FAF7F0 0.75px);
+    background-size: 30px 30px;
+    background-position: 0 0, 15px 15px;
+    color: #1C1917;
+  }
+
+  .font-ntr { line-height: 1.65; }
+  .font-gurajada { line-height: 1.3; }
+}
+
+/* Custom newspaper styling utility classes */
+.font-gurajada {
+  font-family: var(--font-gurajada);
+}
+
+.font-ntr {
+  font-family: var(--font-ntr);
+}
+
+.font-telugu-serif {
+  font-family: var(--font-telugu-serif);
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.font-cinzel {
+  font-family: var(--font-cinzel);
+}
+
+.font-baskerville {
+  font-family: var(--font-baskerville);
+}
+
+/* Authentic Newspaper Borders & Lines */
+.newspaper-double-border {
+  border: 3px double #C8BDB0;
+}
+
+.newspaper-rule-t {
+  border-top: 1px solid #D6CFC7;
+}
+
+.newspaper-rule-b {
+  border-bottom: 1px solid #D6CFC7;
+}
+
+.newspaper-double-rule-t {
+  border-top: 3px double #C8BDB0;
+}
+
+.newspaper-double-rule-b {
+  border-bottom: 3px double #C8BDB0;
+}
+
+.newspaper-rule-y {
+  border-top: 1px solid #D6CFC7;
+  border-bottom: 1px solid #D6CFC7;
+}
+
+.newspaper-masthead-rule {
+  position: relative;
+}
+
+.newspaper-masthead-rule::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-top: 1px solid #781D22;
+  border-bottom: 2px solid #1C1917;
+  margin-top: 6px;
+}
+
+.vintage-stamp {
+  background: radial-gradient(circle, #FAF7F0 4px, #F4EFE6 4px);
+  border: 2px dashed #996515;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.archival-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.82rem;
+  font-family: var(--font-ntr);
+  border: 1px solid #D6CFC7;
+  background-color: #F4EFE6;
+  color: #57524C;
+}
+
+.archival-badge-maroon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.82rem;
+  font-family: var(--font-ntr);
+  border: 1px solid #781D22;
+  background-color: #FAF0F0;
+  color: #781D22;
+  font-weight: 600;
+}
+
+.archival-badge-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.6rem;
+  font-size: 0.82rem;
+  font-family: var(--font-ntr);
+  border: 1px solid #996515;
+  background-color: #FBF6EB;
+  color: #8B5A2B;
+  font-weight: 600;
+}
+
+/* Newspaper Drop Cap */
+.drop-cap::first-letter {
+  float: left;
+  font-family: var(--font-gurajada);
+  font-size: 3.5rem;
+  line-height: 0.85;
+  padding-right: 0.5rem;
+  padding-top: 0.2rem;
+  color: #781D22;
+  font-weight: bold;
+}
+
+/* Subtle archival hover */
+.archive-card-hover {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.archive-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -4px rgba(120, 29, 34, 0.08), 0 4px 8px -2px rgba(0, 0, 0, 0.04);
+  border-color: #B8ACA0;
+}
+
+/* Custom newspaper divider with emblem */
+.newspaper-divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #996515;
+  margin: 1.5rem 0;
+}
+
+.newspaper-divider::before,
+.newspaper-divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #D6CFC7;
+}
+
+.newspaper-divider:not(:empty)::before {
+  margin-right: 1em;
+}
+
+.newspaper-divider:not(:empty)::after {
+  margin-left: 1em;
+}
+
+/* Print Stylesheet for Authentic Historical Archival Printouts */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    font-size: 11pt;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .newspaper-double-border {
+    border: 2px solid #000000 !important;
+  }
+}
