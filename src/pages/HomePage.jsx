@@ -1,4 +1,5 @@
 import React from 'react';
+import Homepage from "../assets/Homepage.jpg";
 import { Link } from 'react-router-dom';
 import {
   ArrowRight,
@@ -131,9 +132,9 @@ export default function HomePage() {
 
             <div className="relative">
               <div className="overflow-hidden rounded-xs border-2 border-[#D6CFC7] bg-[#FFFFFF] p-3 shadow-[0_18px_40px_rgba(28,25,23,0.08)]">
-                <div className="relative h-[420px] overflow-hidden border border-[#D6CFC7] bg-[#2B2826]">
+                <div className="relative h-[520px] overflow-hidden border border-[#D6CFC7] bg-[#2B2826]">
                   <img
-                    src="https://images.unsplash.com/photo-1544717305-2782549b5136?auto=format&fit=crop&w=1200&q=80"
+                    src={Homepage}
                     alt="Godavari freedom fighters archive"
                     className="h-full w-full object-cover grayscale contrast-125 brightness-90"
                   />
@@ -142,7 +143,7 @@ export default function HomePage() {
                       {isTelugu ? 'చారిత్రకాధారిత ఫోటో' : 'Archive photograph'}
                     </span>
                     <p className="mt-2 font-gurajada text-3xl leading-tight">
-                      {isTelugu ? 'గోదావరి జైలు కథలు' : 'Godavari prison stories'}
+                      {isTelugu ? 'గోదావరి కథలు' : 'Godavari prison stories'}
                     </p>
                   </div>
                 </div>
