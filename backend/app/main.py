@@ -1,9 +1,13 @@
+from pathlib import Path
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from sqlalchemy import text
 
 from app.database import engine
 from app.routers import persons
+from app.routers.stamps import router as stamps_router
 
 
 app = FastAPI(
@@ -25,8 +29,31 @@ app.add_middleware(
 )
 
 
-app.include_router(persons.router)
+# --------------------------------------------------
+# Serve stamp images from the existing Stamps folder
+# --------------------------------------------------
 
+BASE_DIR = Path(__file__).resolve().parent.parent
+STAMPS_DIR = BASE_DIR.parent / "Stamps"
+
+app.mount(
+    "/stamps",
+    StaticFiles(directory=STAMPS_DIR),
+    name="stamps",
+)
+
+
+# --------------------------------------------------
+# Routers
+# --------------------------------------------------
+
+app.include_router(persons.router)
+app.include_router(stamps_router)
+
+
+# --------------------------------------------------
+# Root
+# --------------------------------------------------
 
 @app.get("/")
 def root():
@@ -35,6 +62,10 @@ def root():
         "message": "Freedom Fighter API is running",
     }
 
+
+# --------------------------------------------------
+# Database test
+# --------------------------------------------------
 
 @app.get("/api/test-db")
 def test_database():
