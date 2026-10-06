@@ -17,6 +17,7 @@ DATABASE_URL = (
     f"postgresql+psycopg://"
     f"{DB_USER}:{DB_PASSWORD}"
     f"@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+    f"?sslmode=require"
 )
 
 engine = create_engine(
