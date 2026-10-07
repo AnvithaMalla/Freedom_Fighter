@@ -6,7 +6,6 @@ import { BookmarkProvider } from './context/BookmarkContext';
 // Layout Components
 import Masthead from './components/layout/Masthead';
 import Navbar from './components/layout/Navbar';
-import BreakingTicker from './components/layout/BreakingTicker';
 import Footer from './components/layout/Footer';
 
 // Pages
@@ -41,10 +40,7 @@ export default function App() {
             {/* 2. Responsive Editorial Section Bar */}
             <Navbar />
 
-            {/* 3. Breaking Archival Bulletin Ticker */}
-            <BreakingTicker />
-
-            {/* 4. Main Page View Container */}
+            {/* 3. Main Page View Container */}
             <main className="flex-1">
               <Routes>
                 <Route path="/" element={<HomePage />} />
@@ -60,7 +56,7 @@ export default function App() {
               </Routes>
             </main>
 
-            {/* 5. Historical Newspaper Colophon Footer */}
+            {/* 4. Historical Newspaper Colophon Footer */}
             <Footer />
           </div>
         </Router>

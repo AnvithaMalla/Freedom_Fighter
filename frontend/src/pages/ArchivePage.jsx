@@ -234,7 +234,7 @@ export default function StampsPage() {
 
                   {/* Stamp Image */}
 
-                  <div className="relative h-64 bg-[#1C1917] flex items-center justify-center overflow-hidden">
+                  <div className="relative h-64 bg-[#F4EFE6] border border-[#D6CFC7] flex items-center justify-center overflow-hidden">
 
                     {stamp.image_path ? (
                       <img
