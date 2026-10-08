@@ -24,6 +24,8 @@ export default function FightersPage() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    let cancelled = false;
+
     async function loadFighters() {
       try {
         setLoading(true);
@@ -31,26 +33,42 @@ export default function FightersPage() {
 
         const data = await getPersons(language);
 
-        setFighters(data);
+        // Prevent state update if component was unmounted
+        if (!cancelled) {
+          setFighters(data);
+        }
       } catch (err) {
         console.error('Failed to load fighters:', err);
-        setError(err.message);
+
+        if (!cancelled) {
+          setError(err.message);
+        }
       } finally {
-        setLoading(false);
+        if (!cancelled) {
+          setLoading(false);
+        }
       }
     }
 
     loadFighters();
+
+    return () => {
+      cancelled = true;
+    };
   }, [language]);
 
   const filtered = fighters.filter((fighter) => {
     const q = query.trim().toLowerCase();
 
     const name = fighter.name?.toLowerCase() || '';
-    const fatherName = fighter.father_name?.toLowerCase() || '';
-    const village = fighter.village?.toLowerCase() || '';
-    const area = fighter.area?.area_name?.toLowerCase() || '';
-    const district = fighter.district?.district_name?.toLowerCase() || '';
+    const fatherName =
+      fighter.father_name?.toLowerCase() || '';
+    const village =
+      fighter.village?.toLowerCase() || '';
+    const area =
+      fighter.area?.area_name?.toLowerCase() || '';
+    const district =
+      fighter.district?.district_name?.toLowerCase() || '';
 
     if (
       q &&
@@ -70,7 +88,9 @@ export default function FightersPage() {
 
   const active =
     query !== '' ||
-    Object.values(filters).some((x) => x !== 'all');
+    Object.values(filters).some(
+      (x) => x !== 'all'
+    );
 
   if (loading) {
     return (

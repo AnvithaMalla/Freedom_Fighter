@@ -49,9 +49,9 @@ export default function App() {
                 <Route path="/archive" element={<ArchivePage />} />
                 <Route path="/timeline" element={<TimelinePage />} />
                 <Route path="/stories" element={<StoriesPage />} />
-                <Route path="/stories/:id" element={<StoryDetailsPage />} />
+                <Route path="/stories/:articleId" element={<StoryDetailsPage />} />
                 <Route path="/articles" element={<StoriesPage />} />
-                <Route path="/articles/:id" element={<StoryDetailsPage />} />
+                <Route path="/articles/:articleId" element={<StoryDetailsPage />} />
                 <Route path="/about" element={<AboutPage />} />
               </Routes>
             </main>

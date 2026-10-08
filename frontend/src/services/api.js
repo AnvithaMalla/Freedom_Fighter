@@ -34,3 +34,11 @@ export async function getPerson(personId, language = 'te') {
 export async function testDatabase() {
   return request('/test-db')
 }
+
+export async function getArticles() {
+  return request('/articles/')
+}
+
+export async function getArticle(articleId) {
+  return request(`/articles/${articleId}`)
+}

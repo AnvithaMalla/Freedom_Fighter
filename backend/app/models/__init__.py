@@ -4,7 +4,7 @@ from app.models.person import Person
 from app.models.punishment import Punishment
 from app.models.translation import Language, Translation
 from app.models.stamp import Stamp, StampCountry, StampTranslation
-
+from app.models.article import Article, ArticleImage
 __all__ = [
     "District",
     "Area",
@@ -15,4 +15,6 @@ __all__ = [
     "Stamp",
     "StampCountry",
     "StampTranslation",
+    "Article",
+    "ArticleImage"
 ]

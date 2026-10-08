@@ -8,7 +8,7 @@ from sqlalchemy import text
 from app.database import engine
 from app.routers import persons
 from app.routers.stamps import router as stamps_router
-
+from app.routers.articles import router as articles_router
 
 app = FastAPI(
     title="Freedom Fighter API",
@@ -41,7 +41,11 @@ app.mount(
     StaticFiles(directory=STAMPS_DIR),
     name="stamps",
 )
-
+app.mount(
+    "/articles",
+    StaticFiles(directory=r"H:\anvi\freedom\Freedom_Fighter\ARTICLES"),
+    name="articles"
+)
 
 # --------------------------------------------------
 # Routers
@@ -49,7 +53,7 @@ app.mount(
 
 app.include_router(persons.router)
 app.include_router(stamps_router)
-
+app.include_router(articles_router)
 
 # --------------------------------------------------
 # Root
