@@ -2,20 +2,13 @@
   "masthead": {
     "title": "CHRONICLES OF FREEDOM HEROES",
     "subbrand": "GODAVARI FREEDOM ARCHIVE",
-    "subtitle": "Comprehensive Digital Historical Archive of East & West Godavari",
-    "tagline": "Permanent Records & Sacrifices of Godavari Telugu Freedom Fighters",
-    "edition": "Special Godavari Edition",
-    "vol": "Vol. I",
-    "issue": "No. 1",
-    "motto": "Satyameva Jayate • Vande Mataram",
-    "dateDisplay": "Historical Records Edition"
+    "subtitle": "Comprehensive Digital Historical Archive of East & West Godavari"
   },
   "nav": {
     "home": "Home",
     "fighters": "Freedom Fighters",
     "region": "Godavari Region",
     "archive": "Historical Archive",
-    "timeline": "Timeline",
     "stories": "Articles",
     "exhibitions": "Exhibitions",
     "about": "About",
@@ -134,13 +127,6 @@
     "transcription": "Transcription",
     "teluguTranscription": "Telugu Original Text",
     "englishTranslation": "English Translation"
-  },
-  "timeline": {
-    "kicker": "FROM 1857 TO 1947",
-    "title": "Chronology of the Struggle",
-    "subtitle": "Historic milestones echoing across the Godavari river basin",
-    "relatedFighters": "Related Freedom Fighters",
-    "relatedArtifacts": "Related Artifacts"
   },
   "thisDay": {
     "kicker": "GAZETTE CALENDAR",

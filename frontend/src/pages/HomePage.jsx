@@ -15,7 +15,6 @@ import SectionHeading from '../components/common/SectionHeading';
 import ArtifactCard from '../components/archive/ArtifactCard';
 import { fighters } from '../data/fighters';
 import { artifacts } from '../data/artifacts';
-import { events } from '../data/events';
 import { articles as stories } from '../data/articles';
 
 const TALUKA_LABELS = {
@@ -70,7 +69,6 @@ function calculateHomepageStats(fighterList) {
 export default function HomePage() {
   const { isTelugu, t } = useLanguage();
   const featuredStory = stories[0];
-  const timeline = events.slice(0, 3);
   const archiveHighlights = artifacts.slice(0, 3);
   const stats = calculateHomepageStats(fighters);
 
@@ -222,38 +220,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="border-b border-[#D6CFC7] bg-[#FAF7F0] py-12 px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading
-            kicker={t('timeline.kicker')}
-            title={t('timeline.title')}
-            subtitle={t('timeline.subtitle')}
-            actionButton={
-              <Link to="/timeline" className="text-sm font-ntr font-bold text-[#781D22] hover:text-[#9B282F]">
-                {isTelugu ? 'పూర్తి కాలక్రమం →' : 'Full timeline →'}
-              </Link>
-            }
-          />
-
-          <div className="grid gap-5 md:grid-cols-3">
-            {timeline.map((event) => (
-              <article key={event.id} className="border border-[#D6CFC7] bg-[#FFFFFF] p-5 shadow-[0_6px_16px_rgba(28,25,23,0.03)]">
-                <div className="mb-3 inline-flex items-center gap-2 border-b border-[#D6CFC7] pb-2 font-ntr text-[11px] font-semibold uppercase tracking-[0.18em] text-[#996515]">
-                  <CalendarRange className="h-4 w-4" />
-                  <span>{event.year}</span>
-                </div>
-                <h3 className="font-gurajada text-3xl leading-tight text-[#1C1917]">
-                  {isTelugu ? event.titleTe : event.titleEn}
-                </h3>
-                <p className="mt-3 font-ntr text-sm leading-relaxed text-[#57524C]">
-                  {isTelugu ? event.shortDescTe : event.shortDescEn}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="bg-[#F4EFE6] py-14 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <SectionHeading
@@ -320,4 +286,3 @@ export default function HomePage() {
     </div>
   );
 }
-
