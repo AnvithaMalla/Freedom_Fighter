@@ -7,6 +7,8 @@
   --font-editorial: "Playfair Display", "Cinzel", "Noto Serif Telugu", serif;
   --font-cinzel: "Cinzel", serif;
   --font-baskerville: "Libre Baskerville", serif;
+  --font-english-display: "Newsreader", Georgia, serif;
+  --font-english-body: "Source Serif 4", Georgia, serif;
 
   --color-archive-bg: #FAF7F0;
   --color-archive-paper: #F4EFE6;
@@ -31,15 +33,17 @@
     scroll-behavior: smooth;
     font-family: var(--font-ntr), system-ui, sans-serif;
     color: var(--color-archive-ink-body);
-    background-color: var(--color-archive-bg);
+    background-color: transparent;
   }
 
   body {
     min-height: 100vh;
-    background-color: var(--color-archive-bg);
-    background-image: radial-gradient(#D6CFC7 0.75px, transparent 0.75px), radial-gradient(#E8E2D9 0.75px, #FAF7F0 0.75px);
-    background-size: 30px 30px;
-    background-position: 0 0, 15px 15px;
+    background-color: transparent !important;
+    background-image: url('/paper-texture.jpg');
+    background-position: center top;
+    background-repeat: repeat;
+    background-size: cover;
+    background-attachment: fixed;
     color: #1C1917;
   }
 
@@ -55,6 +59,14 @@
     word-spacing: 0.06em;
     letter-spacing: 0.003em;
     text-rendering: optimizeLegibility;
+  }
+
+  /* Large page shells should reveal the global paper texture; cards remain opaque. */
+  main > [class*="bg-[#FAF7F0]"],
+  main > [class*="bg-[#F4EFE6]"],
+  main > div > section[class*="bg-[#FAF7F0]"],
+  main > div > section[class*="bg-[#F4EFE6]"] {
+    background-color: rgba(250, 247, 240, 0.58) !important;
   }
 }
 
@@ -81,6 +93,52 @@
 
 .font-baskerville {
   font-family: var(--font-baskerville);
+}
+
+/* English newspaper typography; Telugu keeps its existing font utilities. */
+.english-editorial {
+  font-family: var(--font-english-body);
+}
+
+.english-editorial :where(h1, h2, h3, h4, h5, h6),
+.english-editorial .font-gurajada,
+.english-editorial .font-cinzel {
+  font-family: var(--font-english-display) !important;
+  text-rendering: optimizeLegibility;
+}
+
+.english-editorial :where(h1, h2, h3, h4, h5, h6) {
+  line-height: 1.1;
+}
+
+.english-editorial h1 {
+  font-size: clamp(2rem, 3.8vw, 3.75rem);
+}
+
+.english-editorial h2 {
+  font-size: clamp(1.55rem, 2.8vw, 2.75rem);
+}
+
+.english-editorial h3 {
+  font-size: clamp(1.2rem, 2.1vw, 1.9rem);
+}
+
+.english-editorial h4,
+.english-editorial h5,
+.english-editorial h6 {
+  font-size: clamp(1.05rem, 1.6vw, 1.4rem);
+}
+
+.english-editorial .masthead-title {
+  font-size: clamp(2rem, 3.6vw, 3.6rem);
+}
+
+.english-editorial :where(p, blockquote),
+.english-editorial .font-editorial,
+.english-editorial .font-baskerville {
+  font-family: var(--font-english-body) !important;
+  font-size: 0.95rem;
+  text-rendering: optimizeLegibility;
 }
 
 /* Authentic Newspaper Borders & Lines */

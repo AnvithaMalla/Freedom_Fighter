@@ -7,7 +7,7 @@ export default function Footer() {
   const { t, isTelugu } = useLanguage();
 
   return (
-    <footer className="bg-[#F4EFE6] border-t-4 border-[#781D22] pt-10 pb-8 text-[#2E2A27] font-ntr">
+    <footer className="bg-[#F4EFE6]/72 border-t-4 border-[#781D22] pt-10 pb-8 text-[#2E2A27] font-ntr">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-8 border-b border-[#D6CFC7]">
@@ -49,11 +49,6 @@ export default function Footer() {
               <li>
                 <Link to="/archive" className="hover:text-[#781D22] transition-colors flex items-center gap-1.5">
                   <span>›</span> {t('nav.archive')}
-                </Link>
-              </li>
-              <li>
-                <Link to="/timeline" className="hover:text-[#781D22] transition-colors flex items-center gap-1.5">
-                  <span>›</span> {t('nav.timeline')}
                 </Link>
               </li>
               <li>

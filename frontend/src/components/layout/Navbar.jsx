@@ -1,25 +1,23 @@
 import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { useLanguage } from '../../context/LanguageContext';
-import { useBookmarks } from '../../context/BookmarkContext';
-import { Menu, X, Bookmark, Search } from 'lucide-react';
+import LanguageSwitcher from '../common/LanguageSwitcher';
+import { Menu, X, Search } from 'lucide-react';
 
 export default function Navbar() {
   const { t } = useLanguage();
-  const { bookmarks } = useBookmarks();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navItems = [
     { to: '/', label: t('nav.home') },
     { to: '/fighters', label: t('nav.fighters') },
     { to: '/archive', label: t('nav.archive') },
-    { to: '/timeline', label: t('nav.timeline') },
     { to: '/articles', label: t('nav.stories') },
     { to: '/about', label: t('nav.about') },
   ];
 
   return (
-    <nav className="sticky top-0 z-40 bg-[#FAF7F0]/95 backdrop-blur-sm border-b border-[#D6CFC7] shadow-xs">
+    <nav className="sticky top-0 z-40 overflow-x-clip bg-[#FAF7F0]/82 backdrop-blur-sm shadow-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-12 md:h-13">
           
@@ -42,27 +40,16 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Quick Search & Saved Items */}
+          {/* Quick Search */}
           <div className="flex items-center space-x-2 md:space-x-3">
+            <LanguageSwitcher />
+
             <Link
               to="/fighters"
               className="p-1.5 text-[#57524C] hover:text-[#781D22] rounded-xs hover:bg-[#F4EFE6] transition-colors"
               title={t('nav.search')}
             >
               <Search className="w-4 h-4" />
-            </Link>
-
-            <Link
-              to="/fighters?saved=true"
-              className="relative p-1.5 text-[#57524C] hover:text-[#781D22] rounded-xs hover:bg-[#F4EFE6] transition-colors flex items-center gap-1 font-ntr text-xs"
-              title={t('nav.saved')}
-            >
-              <Bookmark className="w-4 h-4" />
-              {bookmarks.length > 0 && (
-                <span className="bg-[#781D22] text-[#FAF7F0] text-[10px] font-bold px-1.5 py-0.2 rounded-full">
-                  {bookmarks.length}
-                </span>
-              )}
             </Link>
 
             {/* Mobile menu button */}
@@ -100,6 +87,10 @@ export default function Navbar() {
           ))}
         </div>
       )}
+
+      <div className="relative left-1/2 block w-screen max-w-[100vw] -translate-x-1/2 border-t-2 border-b border-[#1C1917] py-0.5">
+        <div className="border-t border-[#781D22]"></div>
+      </div>
     </nav>
   );
 }

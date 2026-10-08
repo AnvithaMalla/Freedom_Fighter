@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { LanguageProvider } from './context/LanguageContext';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { BookmarkProvider } from './context/BookmarkContext';
 
 // Layout Components
@@ -13,7 +13,6 @@ import HomePage from './pages/HomePage';
 import FightersPage from './pages/FightersPage';
 import FighterDetailsPage from './pages/FighterDetailsPage';
 import ArchivePage from './pages/ArchivePage';
-import TimelinePage from './pages/TimelinePage';
 import StoriesPage from './pages/StoriesPage';
 import StoryDetailsPage from './pages/StoryDetailsPage';
 import AboutPage from './pages/AboutPage';
@@ -27,13 +26,14 @@ function ScrollToTop() {
   return null;
 }
 
-export default function App() {
+function AppShell() {
+  const { isTelugu } = useLanguage();
+
   return (
-    <LanguageProvider>
-      <BookmarkProvider>
-        <Router>
-          <ScrollToTop />
-          <div className="min-h-screen flex flex-col bg-[#FAF7F0] text-[#1C1917]">
+    <BookmarkProvider>
+      <Router>
+        <ScrollToTop />
+        <div className={`min-h-screen flex flex-col text-[#1C1917] ${isTelugu ? '' : 'english-editorial'}`}>
             {/* 1. Historical Newspaper Masthead */}
             <Masthead />
 
@@ -47,7 +47,6 @@ export default function App() {
                 <Route path="/fighters" element={<FightersPage />} />
                 <Route path="/fighters/:id" element={<FighterDetailsPage />} />
                 <Route path="/archive" element={<ArchivePage />} />
-                <Route path="/timeline" element={<TimelinePage />} />
                 <Route path="/stories" element={<StoriesPage />} />
                 <Route path="/stories/:id" element={<StoryDetailsPage />} />
                 <Route path="/articles" element={<StoriesPage />} />
@@ -58,9 +57,16 @@ export default function App() {
 
             {/* 4. Historical Newspaper Colophon Footer */}
             <Footer />
-          </div>
-        </Router>
-      </BookmarkProvider>
+        </div>
+      </Router>
+    </BookmarkProvider>
+  );
+}
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <AppShell />
     </LanguageProvider>
   );
 }
