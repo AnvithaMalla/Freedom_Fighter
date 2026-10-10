@@ -131,7 +131,7 @@ export default function StoriesPage() {
                   {/* =================================================
                       IMAGE
                   ================================================== */}
-                  <div className="relative h-56 sm:h-64 bg-[#2B2826] overflow-hidden">
+                  <div className="relative min-h-[300px] sm:min-h-[400px] bg-[#2B2826] overflow-hidden flex items-center justify-center">
 
                     {firstImage ? (
                       <Link
@@ -147,7 +147,7 @@ export default function StoriesPage() {
                           className="
                             w-full
                             h-full
-                            object-cover
+                            object-contain
                             grayscale
                             contrast-110
                             group-hover:scale-105

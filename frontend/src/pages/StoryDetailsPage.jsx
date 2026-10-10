@@ -247,7 +247,7 @@ export default function StoryDetailPage() {
 
               <div
                 className="
-                  bg-[#2B2826]
+                  bg-[#FAF7F0]
                   flex
                   items-center
                   justify-center
@@ -264,9 +264,10 @@ export default function StoryDetailPage() {
                   }
                   className="
                     block
-                    w-full
+                    w-auto
                     h-auto
-                    max-h-[900px]
+                    max-w-[70%]
+                    max-h-[650px]
                     object-contain
                     mx-auto
                   "

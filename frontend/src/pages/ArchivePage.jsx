@@ -393,7 +393,7 @@ function StampModal({
 
           {/* Image */}
 
-          <div className="bg-[#1C1917] min-h-[400px] flex items-center justify-center">
+          <div className="bg-[#FAF7F0] min-h-[400px] flex items-center justify-center">
 
             {stamp.image_path && (
               <img
