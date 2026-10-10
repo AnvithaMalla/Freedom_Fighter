@@ -257,7 +257,7 @@ export default function StoryDetailPage() {
               >
 
                 <img
-                  src={`http://127.0.0.1:8000${image.image_url}`}
+                  src={`${import.meta.env.VITE_API_BASE_URL}${image.image_url}`}
                   alt={
                     image.caption ||
                     `${title} - ${currentImage + 1}`
@@ -490,7 +490,7 @@ export default function StoryDetailPage() {
                 `}
               >
                 <img
-                  src={`http://127.0.0.1:8000${img.image_url}`}
+                  src={`${import.meta.env.VITE_API_BASE_URL}${img.image_url}`}
                   alt={
                     isTelugu
                       ? `పేజీ ${index + 1}`

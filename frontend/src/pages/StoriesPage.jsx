@@ -139,7 +139,7 @@ export default function StoriesPage() {
                         className="block w-full h-full"
                       >
                         <img
-                          src={`http://127.0.0.1:8000${firstImage.image_url}`}
+                          src={`${import.meta.env.VITE_API_BASE_URL}${firstImage.image_url}`}
                           alt={
                             firstImage.caption ||
                             title
